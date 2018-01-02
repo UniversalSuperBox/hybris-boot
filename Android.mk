@@ -152,7 +152,7 @@ $(BOOT_RAMDISK): $(BOOT_RAMDISK_FILES) $(BB_STATIC) $(E2FSCK_STATIC)
 # really hard to depend on things which may affect init.
 	@mv $(BOOT_RAMDISK_INIT) $(BOOT_INTERMEDIATE)/initramfs/init
 	@cp $(BB_STATIC) $(BOOT_INTERMEDIATE)/initramfs/bin/
-	@cp $(E2FSCK_STATIC) $(RECOVERY_INTERMEDIATE)/initramfs/bin/
+	@cp $(E2FSCK_STATIC) $(BOOT_INTERMEDIATE)/initramfs/bin/
 ifeq ($(BOARD_CUSTOM_MKBOOTIMG),pack_intel)
 	@(cd $(BOOT_INTERMEDIATE)/initramfs && find . | cpio -H newc -o ) | $(MINIGZIP) > $(BOOT_RAMDISK)
 else
